@@ -1,2 +1,2 @@
-# STDemoExtended
-STDemo completed with some extensions
+# STDemo
+Smart Templates Application with SAP Web IDE

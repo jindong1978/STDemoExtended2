@@ -1,0 +1,9 @@
+jQuery.sap.declare("com.st.demo.Component");
+sap.ui.getCore().loadLibrary("sap.ui.generic.app");
+jQuery.sap.require("sap.ui.generic.app.AppComponent");
+
+sap.ui.generic.app.AppComponent.extend("com.st.demo.Component", {
+	metadata: {
+		"manifest": "json"
+	}
+});

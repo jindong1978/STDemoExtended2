@@ -1,0 +1,248 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Communication.xml">
+		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/cs01/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/Common.xml">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata">
+		<edmx:Include Alias="GWSAMPLE_BASIC" Namespace="GWSAMPLE_BASIC"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata02/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="GWSAMPLE_BASICAnnotation" Namespace="sap.cbesh.cestbon.GWSAMPLE_BASICAnnotation">
+			<Annotations Target="/IWBEP/GWSAMPLE_BASIC.Product">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ProductID"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Name"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Category"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Description"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Price"/>
+						</Record>
+						<Record Type="UI.DataFieldForAction">
+							<PropertyValue Property="Label" String="{@i18n&gt;@REGENERATE_ALL}"/>
+							<PropertyValue Property="Action" String="/IWBEP/GWSAMPLE_BASIC./IWBEP/GWSAMPLE_BASIC_Entities/RegenerateAllData"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>ProductID</PropertyPath>
+						<PropertyPath>Category</PropertyPath>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="TypeName" String="{@i18n&gt;@PRODUCT}"/>
+						<PropertyValue Property="TypeNamePlural" String="{@i18n&gt;@PRODUCTS}"/>
+						<PropertyValue Property="TypeImageUrl" String=""/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Name"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="Description">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="Description"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="ImageUrl">
+							<Apply Function="odata.concat">
+								<String>/webapp/images/</String>
+								<Path>ProductID</Path>
+								<String>.jpg</String>
+							</Apply>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n&gt;@PRICE}"/>
+						<PropertyValue Property="Value" Path="Price"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="DPTaxCode">
+					<Record Type="UI.DataPointType">
+						<PropertyValue Property="Title" String="{@i18n&gt;@TAX_TARIF_CODE}"/>
+						<PropertyValue Property="Value" Path="TaxTarifCode"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="FGTechData">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="WeightMeasure"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Width"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Height"/>
+								</Record>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="Depth"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderFacets">
+					<Collection>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@TECHINCAL_DATA}"/>
+							<PropertyValue Property="ID" String="RFTechData"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGTechData"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@PRICE}"/>
+							<PropertyValue Property="ID" String="RFPrice"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint"/>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@TAX_TARIF_CODE}"/>
+							<PropertyValue Property="ID" String="RFTaxCode"/>
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#DPTaxCode"/>
+						</Record>
+					<Record Type="UI.ReferenceFacet"> <PropertyValue Property="Label" String="{@i18n&gt;@SUPPLIER}"/> <PropertyValue Property="ID" String="RFSupplier"/> <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#FGSupplier"/> </Record> </Collection>
+				</Annotation>
+				<Annotation Term="UI.Identification">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ProductID"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Name"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Category"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="TypeCode"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Description"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Price"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.StatusInfo">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="CreatedAt"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ChangedAt"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@PRODUCT_DETAILS}"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;@PRODUCT_INFO}"/>
+										<PropertyValue Property="ID" String="RFProductInfo"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>
+									</Record>
+									<Record Type="UI.ReferenceFacet">
+										<PropertyValue Property="Label" String="{@i18n&gt;@STATUS_INFO}"/>
+										<PropertyValue Property="ID" String="RFStatusInfo"/>
+										<PropertyValue Property="Target" AnnotationPath="@UI.StatusInfo"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record Type="UI.ReferenceFacet">
+							<PropertyValue Property="Label" String="{@i18n&gt;@SALES_DATA}"/>
+							<PropertyValue Property="ID" String="RFSalesData"/>
+							<PropertyValue Property="Target" AnnotationPath="ToSalesOrderLineItems/@UI.LineItem"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="FGSupplier">
+					<Record Type="UI.FieldGroupType">
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField">
+									<PropertyValue Property="Value" Path="SupplierID"/>
+								</Record>
+								<Record Type="UI.DataFieldForAnnotation">
+									<PropertyValue Property="Label" String="Supplier"/>
+									<PropertyValue AnnotationPath="ToSupplier/@Communication.Contact" Property="Target"/>
+									<Annotation EnumMember="UI.ImportanceType/High" Term="UI.Importance"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="/IWBEP/GWSAMPLE_BASIC.SalesOrderLineItem">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="ProductID"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="NetAmount"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="TaxAmount"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="GrossAmount"/>
+						</Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="/IWBEP/GWSAMPLE_BASIC.BusinessPartner">
+				<Annotation Term="Communication.Contact">
+					<Record>
+						<PropertyValue Path="CompanyName" Property="fn"/>
+						<PropertyValue Property="tel">
+							<Collection>
+								<Record>
+									<PropertyValue EnumMember="Communication.PhoneType/fax" Property="type"/>
+									<PropertyValue Path="FaxNumber" Property="uri"/>
+								</Record>
+								<Record>
+									<PropertyValue EnumMember="Communication.PhoneType/work Communication.PhoneType/pref" Property="type"/>
+									<PropertyValue Path="PhoneNumber" Property="uri"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="email">
+							<Collection>
+								<Record>
+									<PropertyValue Path="EmailAddress" Property="address"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

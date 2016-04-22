@@ -1,0 +1,41 @@
+{
+  "projectType": [
+    "sap.watt.saptoolsets.fiori.project.ui5template.smartProject",
+    "sap.watt.uitools.ide.fiori",
+    "com.watt.common.builder.sapui5clientbuild"
+  ],
+  "build": {
+    "targetFolder": "dist",
+    "sourceFolder": "webapp",
+    "excludedFolders": [
+      "test"
+    ],
+    "buildRequired": true
+  },
+  "generation": [
+    {
+      "templateId": "ui5template.smarttemplate",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Mon, 11 Apr 2016 10:13:38 GMT"
+    },
+    {
+      "templateId": "com.sap.webide.annotationmodeller.CreateAnnotationTemplate",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Mon, 11 Apr 2016 14:22:13 GMT"
+    }
+  ],
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/iwbep/GWSAMPLE_BASIC",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  }
+}
