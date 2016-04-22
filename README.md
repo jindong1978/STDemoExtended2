@@ -1,2 +1,2 @@
-# STDemo
-Smart Templates Application with SAP Web IDE
+# STDemoExtended
+Smart Templates Application with SAP Web IDE - Extended version
